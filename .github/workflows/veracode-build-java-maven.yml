@@ -37,12 +37,12 @@ jobs:
     - name: Package the appliccation
       run: |
         ls -la
-        cd veracode-helper/helper/cli
-        chmod +x install.sh
+        #cd veracode-helper/helper/cli
+        #chmod +x install.sh
         export VERACODE_API_KEY_ID=${{ secrets.VERACODE_API_ID }}
         export VERACODE_API_KEY_SECRET=${{ secrets.VERACODE_API_KEY }}
-        ./install.sh local
-        ./veracode 
+        #./install.sh local
+        /home/runner/work/veracode/veracode/veracode-helper/veracode 
         cd /home/runner/work/veracode/veracode/
         ls -la
         veracode-helper/helper/cli/veracode pacakge --source . --output veracode-artifacts --trust
