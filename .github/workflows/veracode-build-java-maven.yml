@@ -40,9 +40,11 @@ jobs:
         cd veracode-helper/helper/cli
         chmod +x install.sh
         ./install.sh local
+        ./veracode 
         cd /home/runner/work/veracode/veracode/
-        veracode-helper/helper/cli/veracode pacakge --source . --output veracode-artifacts --trust
         ls -la
+        veracode-helper/helper/cli/veracode pacakge --source . --output veracode-artifacts --trust
+        
       
 
         
