@@ -38,7 +38,7 @@ jobs:
       run: |
         ls -la
         cd veracode-helper/helper/cli
-        chmod -x install.sh
+        chmod +x install.sh
         ./install.sh local
         cd /veracode
         /veracode-helper/helper/cli/veracode pacakge --source . --output veracode-artifacts --trust
