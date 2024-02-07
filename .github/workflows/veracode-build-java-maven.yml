@@ -35,12 +35,13 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
     - name: Package the appliccation
+      env:
+        VERACODE_API_KEY_ID: ${{ secrets.VERACODE_API_ID }}
+        VERACODE_API_KEY_SECRET: ${{ secrets.VERACODE_API_KEY }}
       run: |
         ls -la
         cd veracode-helper/helper/cli
         chmod +x install.sh
-        export VERACODE_API_KEY_ID=${{ secrets.VERACODE_API_ID }}
-        export VERACODE_API_KEY_SECRET=${{ secrets.VERACODE_API_KEY }}
         env
         ./install.sh system
         cd /home/runner/work/veracode/veracode/
