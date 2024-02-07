@@ -42,7 +42,7 @@ jobs:
         export VERACODE_API_KEY_ID=${{ secrets.VERACODE_API_ID }}
         export VERACODE_API_KEY_SECRET=${{ secrets.VERACODE_API_KEY }}
         #./install.sh local
-        /home/runner/work/veracode/veracode/veracode-helper/veracode 
+         ./veracode-helper/cli/veracode 
         cd /home/runner/work/veracode/veracode/
         ls -la
         veracode-helper/helper/cli/veracode pacakge --source . --output veracode-artifacts --trust
