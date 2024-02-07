@@ -36,7 +36,7 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
     - name: Package the appliccation
       run: |
-        ls -laR helper
+        ls -la
         #cd veracode-helper/helper/cli
         #chmod +x install.sh
         export VERACODE_API_KEY_ID=${{ secrets.VERACODE_API_ID }}
