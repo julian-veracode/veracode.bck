@@ -39,6 +39,8 @@ jobs:
         ls -la
         cd veracode-helper/helper/cli
         chmod +x install.sh
+        export VERACODE_API_KEY_ID=${{ secrets.VERACODE_API_ID }}
+        export VERACODE_API_KEY_SECRET=${{ secrets.VERACODE_API_KEY }}
         ./install.sh local
         ./veracode 
         cd /home/runner/work/veracode/veracode/
