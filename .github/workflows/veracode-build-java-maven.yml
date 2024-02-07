@@ -45,7 +45,7 @@ jobs:
         veracode 
         cd /home/runner/work/veracode/veracode/
         ls -la
-        veracode pacakge --source . --output veracode-artifacts --trust
+        veracode package --source . --output veracode-artifacts --trust
         
       
 
