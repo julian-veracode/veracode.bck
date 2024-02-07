@@ -41,10 +41,11 @@ jobs:
         chmod +x install.sh
         export VERACODE_API_KEY_ID=${{ secrets.VERACODE_API_ID }}
         export VERACODE_API_KEY_SECRET=${{ secrets.VERACODE_API_KEY }}
+        env
         ./install.sh system
         cd /home/runner/work/veracode/veracode/
         ls -la
-        sudo veracode package --source . --output veracode-artifacts --trust
+        veracode package --source . --output veracode-artifacts --trust
         
       
 
