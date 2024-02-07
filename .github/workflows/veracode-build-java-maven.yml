@@ -1,0 +1,52 @@
+name: Veracode Build Java Maven Application
+
+on:
+  workflow_call:
+    inputs:
+      repository:
+        required: true
+        type: string
+      ref:
+        required: true
+        type: string
+      token:
+        required: true
+        type: string
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.ref }}
+        token: ${{ inputs.token }}
+    - uses: actions/checkout@v3
+      with:
+        path: 'veracode-helper'
+    - uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: oracle
+    - name: Cache Maven Dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+    - name: Package the appliccation
+      run: |
+        ls -la
+        cd veracode-helper/helper/cli
+        chmod -x install.sh
+        ./install.sh local
+        cd /veracode
+        /veracode-helper/helper/cli/veracode pacakge --source . --output veracode-artifacts --trust
+        ls -la
+      
+
+        
+    - uses: actions/upload-artifact@v3
+      with:
+        name: veracode-artifact
+        path: target/${{ env.veracode_artifact }}
