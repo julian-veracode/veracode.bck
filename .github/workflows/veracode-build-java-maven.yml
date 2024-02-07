@@ -44,9 +44,10 @@ jobs:
         ./install.sh system
         ls -la /usr/local/bin/veracode
         chmod +x /usr/local/bin/veracode
+        chmod +x /usr/local/bin/veracode
         cd /home/runner/work/veracode/veracode/
         ls -la
-        veracode package --source . --output veracode-artifacts --trust
+        sudo veracode package --source . --output veracode-artifacts --trust
         
       
 
