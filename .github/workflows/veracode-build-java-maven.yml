@@ -45,7 +45,13 @@ jobs:
         env
         ./install.sh system
         cd /home/runner/work/veracode/veracode/
+        echo "cat /opt/veracode/2.9.1/veracode"
+        cat /opt/veracode/2.9.1/veracode
+        echo "cat /usr/local/bin/veracode/"
         cat /usr/local/bin/veracode
+        echo "ls -la /opt/veracode/2.9.1"
+        ls -la /opt/veracode/2.9.1
+        echo "ls -la"
         ls -la
         veracode package --source . --output veracode-artifacts --trust
         
