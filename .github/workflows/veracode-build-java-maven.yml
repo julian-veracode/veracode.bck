@@ -44,11 +44,9 @@ jobs:
         curl -fsS https://tools.veracode.com/veracode-cli/install | sh
         cd /home/runner/work/veracode/veracode/
         veracode-helper/helper/cli/veracode package --source . --output veracode-artifacts --trust
-        
-      
-
+        zip veracode-artifact.zip veracode-artifacts/*
         
     - uses: actions/upload-artifact@v3
       with:
         name: veracode-artifact
-        path: target/${{ env.veracode_artifact }}
+        path: veracode-artifact.zip
