@@ -41,6 +41,8 @@ jobs:
       run: |
         ls -la
         cd veracode-helper/helper/cli
+        pwd
+        ls -la
         tar -zxvf veracode-cli.tar.gz
         cd veracode-cli
         echo "ls -la"
