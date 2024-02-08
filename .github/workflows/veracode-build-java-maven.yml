@@ -42,23 +42,13 @@ jobs:
       run: |
         ls -la
         cd veracode-helper/helper/cli
-        pwd
-        ls -la
         tar -zxvf veracode-cli.tar.gz
-        echo "ls -la"
-        ls -la
-        echo "cat veracode"
-        cat veracode
-        echo "install local"
+        echo "install system"
         ./install local
-        echo "ls -la"
-        ls -la
-        echo "cat veracode"
-        cat veracode
         ./veracode
         #curl -fsS https://tools.veracode.com/veracode-cli/install | sh
         cd /home/runner/work/veracode/veracode/
-        veracode-helper/helper/cli/veracode package --source . --output veracode-artifacts --trust
+        veracode package --source . --output veracode-artifacts --trust
         zip veracode-artifact.zip veracode-artifacts/*
         
     - uses: actions/upload-artifact@v3
