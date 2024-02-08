@@ -45,8 +45,6 @@ jobs:
         cd veracode-cli_2.9.1_linux_x86
         chmod +x install.sh
         ./install.sh local
-        ./veracode
-        #curl -fsS https://tools.veracode.com/veracode-cli/install | sh
         cd /home/runner/work/veracode/veracode/
         veracode package --source . --output veracode-artifacts --trust
         zip veracode-artifact.zip veracode-artifacts/*
