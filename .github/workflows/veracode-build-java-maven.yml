@@ -53,7 +53,7 @@ jobs:
         ls -la /opt/veracode/2.9.1
         echo "ls -la"
         ls -la
-        veracode package --source . --output veracode-artifacts --trust
+        veracode-helper/helper/cli/veracode package --source . --output veracode-artifacts --trust
         
       
 
