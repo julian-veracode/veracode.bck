@@ -42,7 +42,7 @@ jobs:
       run: |
         cd veracode-helper/helper/cli
         cliFile=$(ls -1 . | head -n 1)
-        cliFileNamee=$(ls -1 . | grep '\.tar\.gz$' | head -n 1)
+        cliFileName=$(ls -1 . | grep '\.tar\.gz$' | head -n 1)
         tar -zxvf $cliFile
         cd $cliFileName
         chmod +x install.sh
