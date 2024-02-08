@@ -45,6 +45,7 @@ jobs:
         env
         ./install.sh system
         cd /home/runner/work/veracode/veracode/
+        cat /usr/local/bin/veracode
         ls -la
         veracode package --source . --output veracode-artifacts --trust
         
