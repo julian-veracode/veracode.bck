@@ -41,19 +41,17 @@ jobs:
       run: |
         ls -la
         cd veracode-helper/helper/cli
+        tar -zxvf veracode-cli.tar.gz
+        ls -la
+        cd veracode-cli
         chmod +x install.sh
-        env
-        ./install.sh system
-        cd /home/runner/work/veracode/veracode/
-        echo "cat /opt/veracode/2.9.1/veracode"
-        cat /opt/veracode/2.9.1/veracode
-        echo "cat /usr/local/bin/veracode/"
-        cat /usr/local/bin/veracode
-        echo "ls -la /opt/veracode/2.9.1"
-        ls -la /opt/veracode/2.9.1
+        ./install.sh local
         echo "ls -la"
         ls -la
-        veracode-helper/helper/cli/veracode package --source . --output veracode-artifacts --trust
+        cd /home/runner/work/veracode/veracode/
+        echo "ls -la"
+        ls -la
+        veracode-helper/helper/cli/veracode-cli/veracode package --source . --output veracode-artifacts --trust
         
       
 
