@@ -44,6 +44,7 @@ jobs:
         cliFile=$(ls -1 . | head -n 1)
         cliFileName=$(echo "$cliFile" | cut -c 1-$((${#cliFile}-6)))
         tar -zxvf $cliFile
+        ls -la
         cd $cliFileName
         chmod +x install.sh
         ./install.sh system
