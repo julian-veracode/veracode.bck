@@ -42,7 +42,7 @@ jobs:
       run: |
         cd veracode-helper/helper/cli
         cliFile=$(ls -1 . | head -n 1)
-        cliFileName=$(echo "$cliFile" | cut -c 1-$((${#cliFile}-6)))
+        cliFileName=$(echo "$cliFile" | cut -c 1-$((${#cliFile}-7)))
         tar -zxvf $cliFile
         ls -la
         cd $cliFileName
