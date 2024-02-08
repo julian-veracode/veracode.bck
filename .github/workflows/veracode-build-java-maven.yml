@@ -40,15 +40,11 @@ jobs:
         VERACODE_API_KEY_ID: '${{ secrets.VERACODE_API_ID }}'
         VERACODE_API_KEY_SECRET: '${{ secrets.VERACODE_API_KEY }}'
       run: |
-        ls -la
         cd veracode-helper/helper/cli
         tar -zxvf veracode-cli.tar.gz
-        ls -la
         cd veracode-cli_2.9.1_linux_x86
-        ls -la
         chmod +x install.sh
-        echo "install system"
-        ./install local
+        ./install.sh local
         ./veracode
         #curl -fsS https://tools.veracode.com/veracode-cli/install | sh
         cd /home/runner/work/veracode/veracode/
