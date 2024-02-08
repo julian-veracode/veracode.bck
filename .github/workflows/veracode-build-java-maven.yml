@@ -43,6 +43,7 @@ jobs:
         ls -la
         cd veracode-helper/helper/cli
         tar -zxvf veracode-cli.tar.gz
+        ls -la
         echo "install system"
         ./install local
         ./veracode
