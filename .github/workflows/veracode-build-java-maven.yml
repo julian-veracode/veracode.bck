@@ -41,16 +41,10 @@ jobs:
       run: |
         ls -la
         cd veracode-helper/helper/cli
-        tar -zxvf veracode-cli.tar.gz
-        ls -la
-        cd veracode-cli
-        chmod +x install.sh
-        ./install.sh local
-        echo "ls -la"
-        ls -la
+        curl -fsS https://tools.veracode.com/veracode-cli/install | sh
         cd /home/runner/work/veracode/veracode/
-        echo "ls -la"
-        ls -la
+        echo "ls -lar veracode-helper"
+        ls -lar veracode-helper
         veracode-helper/helper/cli/veracode-cli/veracode package --source . --output veracode-artifacts --trust
         
       
