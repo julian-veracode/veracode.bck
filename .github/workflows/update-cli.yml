@@ -16,9 +16,9 @@ jobs:
           cd helper/cli
           cliFile=$(ls -1 . | head -n 1)
           echo "Filename: $cliFile"
-          IFS="_"
-          read -ra local_version <<< "$cliFile"
-          echo "Local version: $local_version[1]"
+          local_version="${cliFile#*_}"
+          local_version="${local_version%%_*}"
+          echo "Local version: $local_version"
           curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           latest_version=$(<"LATEST_VERSION")
           echo "latest_version: $latest_version"
