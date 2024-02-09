@@ -22,7 +22,7 @@ jobs:
           curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           latest_version=$(<"LATEST_VERSION")
           echo "Latest version: $latest_version"
-          if [ $local_version[1] -eq $latest_version ]; then
+          if [ $local_version[1] = $latest_version ]; then
             echo "We already have the latest version - nothing to do here"
           else
             echo "There is a new version we need to downlaod"
