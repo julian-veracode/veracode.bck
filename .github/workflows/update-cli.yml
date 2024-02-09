@@ -26,7 +26,6 @@ jobs:
             echo "We already have the latest version - nothing to do here"
           else
             echo "There is a new version we need to downlaod"
-            git lfs track "*.tar.gz"
             downloadUrl="https://tools.veracode.com/veracode-cli/veracode-cli_${latest_version}_linux_x86.tar.gz"
             echo "Download URL: $downloadUrl"
             curl -sSO $downloadUrl
@@ -37,10 +36,6 @@ jobs:
 
       - name: commit back to repo
         run: |
-          #curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-          #apt-get install git-lfs
-          git lfs track "*.tar.gz"
-          
           git config --global user.name 'veracode'
           git config --global user.email 'cli@veracode.com'
           git add -A
