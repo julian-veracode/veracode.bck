@@ -30,6 +30,10 @@ jobs:
             echo "Download URL: $downloadUrl"
             curl -sSO $downloadUrl
             ls -la
+            echo "CLEAN UP"
+            rm -rf veracode-cli_${local_version}_linux_x86.tar.gz
+            rm -rf LATEST_VERSION
+            ls -la
           fi
 
 
