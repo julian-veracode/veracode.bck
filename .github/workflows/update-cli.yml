@@ -16,13 +16,13 @@ jobs:
           cd helper/cli
           cliFile=$(ls -1 . | head -n 1)
           echo "Filename: $cliFile"
-          separator="_"
-          IFS=$separator read -ra array <<< "$cliFile"
-          echo "Local version: $array[2]"
+          IFS="_"
+          read -ra local_version <<< "$cliFile"
+          echo "Local version: $local_version[1]"
           curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           latest_version=$(<"LATEST_VERSION")
           echo "latest_version: $latest_version"
-          if [ "$array[1]" = "$latest_version" ]; then
+          if [ "$local_version[1]" = "$latest_version" ]; then
             echo "We already have the current version - nothing to do here"
           else
             echo "There is a new version we need to downlaod"
