@@ -1,0 +1,36 @@
+name: Update the Veracode CLI
+
+on:
+  schedule:
+      - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  build-plugin:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update Veracode CLI to latest version
+        run: |
+          cd helper/cli
+          curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
+          cliFile=$(ls -1 . | head -n 1)
+          IFS="_" read -ra array <<< "$cliFile"
+          echo $array[1]
+          current_version=$(<"LATEST_VERSION")
+          if [ "$array[1]" = "$current_version" ]; then
+            echo "We already have the current version - nothing to do here"
+          else
+            echo "There is a new version we need to downlaod"
+          fi
+
+
+
+#      - name: commit back to repo
+#        run: |
+#             git config --global user.name 'veracode'
+#             git config --global user.email 'cli@veracode.com'
+#             git add -A
+#             git commit -am "New Plugin Version"
+#             git push --verbose
