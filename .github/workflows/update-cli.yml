@@ -26,7 +26,7 @@ jobs:
             echo "We already have the current version - nothing to do here"
           else
             echo "There is a new version we need to downlaod"
-            downloadUrl="https://tools.veracode.com/veracode-cli/veracode-cli_$latest_version_linux-x86.tar.gz"
+            downloadUrl="https://tools.veracode.com/veracode-cli/veracode-cli_${latest_version}_linux-x86.tar.gz"
             echo "Download URL: $downloadUrl"
             curl -sSO $downloadUrl
             ls -la
