@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-cli:
+  update-veracode-cli:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
