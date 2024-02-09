@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-plugin:
+  update-cli:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -16,8 +16,9 @@ jobs:
           cd helper/cli
           curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           cliFile=$(ls -1 . | head -n 1)
+          echo "Filename: $cliFile"
           IFS="_" read -ra array <<< "$cliFile"
-          echo $array[1]
+          echo "Latest version: $array[1]"
           current_version=$(<"LATEST_VERSION")
           if [ "$array[1]" = "$current_version" ]; then
             echo "We already have the current version - nothing to do here"
