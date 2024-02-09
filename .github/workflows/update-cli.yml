@@ -27,7 +27,7 @@ jobs:
           else
             echo "There is a new version we need to downlaod"
             git lfs track "*.tar.gz"
-            downloadUrl="https://tools.veracode.com/veracode-cli/veracode-cli_${latest_version}_linux-x86.tar.gz"
+            downloadUrl="https://tools.veracode.com/veracode-cli/veracode-cli_${latest_version}_linux_x86.tar.gz"
             echo "Download URL: $downloadUrl"
             curl -sSO $downloadUrl
             ls -la
