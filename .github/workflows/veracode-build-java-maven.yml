@@ -25,7 +25,6 @@ jobs:
     - uses: actions/checkout@v3
       with:
         path: 'veracode-helper'
-        lfs: 'true'
     - uses: actions/setup-java@v3
       with:
         java-version: 17
