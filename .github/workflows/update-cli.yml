@@ -20,7 +20,7 @@ jobs:
           echo "Local version: $array[2]"
           curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           latest_version=$(<"LATEST_VERSION")
-          echo "latest_version: $latest_version)
+          echo "latest_version: $latest_version"
           if [ "$array[1]" = "$latest_version" ]; then
             echo "We already have the current version - nothing to do here"
           else
