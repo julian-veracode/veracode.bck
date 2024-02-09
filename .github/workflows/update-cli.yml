@@ -14,11 +14,11 @@ jobs:
       - name: Update Veracode CLI to latest version
         run: |
           cd helper/cli
-          curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           cliFile=$(ls -1 . | head -n 1)
           echo "Filename: $cliFile"
           IFS="_" read -ra array <<< "$cliFile"
-          echo "Latest version: $array[1]"
+          echo "Local version: $array[1]"
+          curl -sSO https://tools.veracode.com/veracode-cli/LATEST_VERSION
           current_version=$(<"LATEST_VERSION")
           if [ "$array[1]" = "$current_version" ]; then
             echo "We already have the current version - nothing to do here"
