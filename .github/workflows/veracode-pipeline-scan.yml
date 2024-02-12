@@ -53,6 +53,8 @@ jobs:
         with:
           pipeline-results-json: filtered_results.json
           output-results-sarif: veracode-results.sarif
-          repo_owner: 'julian-veracode'
-          repo_name: 'GitHubApp-no-config'
+          repo_owner: ${{ inputs.repositroy_owner }}
+          repo_name: ${{ inputs.repositroy_name }}
+          commitSHA: ${{ inputs.head_sha }},
+          ref: 'refs/heads/myBranch'
           githubToken: ${{ github.event.client_payload.token }}
