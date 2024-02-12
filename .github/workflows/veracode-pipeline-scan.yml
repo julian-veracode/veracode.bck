@@ -55,3 +55,4 @@ jobs:
           repo_owner: 'julian-veracode'
           repo_name: 'GitHubApp-no-config'
           github-token: ${{ github.event.client_payload.token }}
+          debug: true
