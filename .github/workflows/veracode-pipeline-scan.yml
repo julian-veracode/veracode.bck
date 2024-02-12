@@ -12,6 +12,8 @@ jobs:
   pipeline_scan:
     runs-on: ubuntu-latest
     name: pipeline scan
+    permissions:
+        issues: write
 
     steps:
       - name: checkout repo
@@ -41,8 +43,6 @@ jobs:
           fail_build: false
 
       - name: import-issues
-          permissions:
-            issues: write
           steps:
             #- name: get scan results
             #  uses: actions/download-artifact@v3
