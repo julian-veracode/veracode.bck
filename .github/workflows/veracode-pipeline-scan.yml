@@ -6,6 +6,9 @@ on:
       policy_name:
         required: true
         type: string
+      commit_sha:
+        required: true
+        type: string
 
   
 jobs:
