@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: pipeline scan
     permissions:
-        issues: read, write
+        issues: write
 
     steps:
       - name: checkout repo
