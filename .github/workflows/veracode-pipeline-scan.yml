@@ -55,6 +55,6 @@ jobs:
           output-results-sarif: veracode-results.sarif
           repo_owner: ${{ inputs.repositroy_owner }}
           repo_name: ${{ inputs.repositroy_name }}
-          commitSHA: ${{ inputs.head_sha }},
+          commit_sha: ${{ inputs.head_sha }},
           ref: 'refs/heads/myBranch'
           githubToken: ${{ github.event.client_payload.token }}
