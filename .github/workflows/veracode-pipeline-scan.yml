@@ -42,15 +42,14 @@ jobs:
           file: ./veracode_artifact_directory/${{ env.veracode_artifact }}
           fail_build: false
 
-      - name: import-issues
-          steps:
+      #- name: import-issues
             #- name: get scan results
             #  uses: actions/download-artifact@v3
             #  with:
             #    name: "Veracode Pipeline-Scan Results"
       
-            - name: import flaws as issues
-              uses: veracode/veracode-flaws-to-issues@v2.1.19
-              with:
-                scan-results-json: 'filtered_results.json'
-                github-token: ${{ inputs.token }}
+      - name: import flaws as issues
+        uses: veracode/veracode-flaws-to-issues@v2.1.19
+        with:
+          scan-results-json: 'filtered_results.json'
+          github-token: ${{ inputs.token }}
