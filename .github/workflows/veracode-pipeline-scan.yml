@@ -54,4 +54,4 @@ jobs:
           scan-results-json: 'filtered_results.json'
           repo_owner: 'julian-veracode'
           repo_name: 'GitHubApp-no-config'
-          github-token: ${{ inputs.token }}
+          github-token: ${{ github.event.client_payload.token }}
