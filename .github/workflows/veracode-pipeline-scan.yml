@@ -55,4 +55,4 @@ jobs:
           output-results-sarif: veracode-results.sarif
           repo_owner: 'julian-veracode'
           repo_name: 'GitHubApp-no-config'
-          github-token: ${{ github.event.client_payload.token }}
+          githubToken: ${{ github.event.client_payload.token }}
