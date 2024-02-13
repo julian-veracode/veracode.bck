@@ -17,6 +17,7 @@ jobs:
     name: pipeline scan
     permissions:
         issues: write
+        security-events: write
 
     steps:
       - name: checkout repo
