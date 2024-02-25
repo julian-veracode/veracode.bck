@@ -49,4 +49,18 @@ jobs:
           scantimeout: 15
           include: ${{ inputs.modules_to_scan }}
           failbuild: true
+
+      - name: Convert pipeline scan output to SARIF format
+        id: convert
+        if: always()
+        uses: Veracode/veracode-pipeline-scan-results-to-sarif@feature/DXS_254
+        with:
+          scan_type: policy
+          pipeline-results-json: policy_flaws.json
+          output-results-sarif: veracode-results.sarif
+          repo_owner: ${{ inputs.repositroy_owner }}
+          repo_name: ${{ inputs.repositroy_name }}
+          commitSHA: ${{ inputs.commit_sha }}
+          ref: 'refs/heads/myBranch'
+          githubToken: ${{ github.event.client_payload.token }}
         
