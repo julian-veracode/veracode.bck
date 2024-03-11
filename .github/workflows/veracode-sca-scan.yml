@@ -30,9 +30,6 @@ jobs:
           #ref: ${{ github.event.client_payload.sha }}
           ref: new-branch
           token: ${{ github.event.client_payload.token }}
-      - name: Get out of detached head
-        run: |
-          git switch -
       - name: Run Veracode SCA
         env:
           SRCCLR_API_TOKEN: ${{ secrets.VERACODE_AGENT_TOKEN }}
