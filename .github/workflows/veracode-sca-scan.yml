@@ -27,7 +27,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: ${{ github.event.client_payload.repository.full_name }}
-          ref: ${{ github.event.client_payload.sha }}
+          #ref: ${{ github.event.client_payload.sha }}
+          ref: new-branch
           token: ${{ github.event.client_payload.token }}
       - name: Get out of detached head
         run: |
